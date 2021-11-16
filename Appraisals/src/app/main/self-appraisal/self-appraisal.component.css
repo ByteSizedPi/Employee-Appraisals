@@ -1,0 +1,38 @@
+.alert {
+  margin: 0 .5rem;
+}
+
+.alert-secondary:hover {
+  cursor: pointer;
+  background: whitesmoke;
+}
+
+.accordion-item .available {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.accordion-item .available .manager {
+  -ms-grid-column: 4;
+      grid-column-start: 4;
+  grid-column-end: 6;
+}
+
+.accordion-item .available button {
+  -ms-grid-column: 5;
+      grid-column-start: 5;
+}
+
+.accordion-item .all {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.header {
+  margin: 1.5rem 0;
+}
+/*# sourceMappingURL=self-appraisal.component.css.map */

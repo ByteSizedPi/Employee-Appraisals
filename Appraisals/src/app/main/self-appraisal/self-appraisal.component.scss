@@ -1,0 +1,33 @@
+.alert {
+    margin: 0 .5rem;
+    
+}
+.alert-secondary:hover {
+    cursor: pointer;
+    background: whitesmoke;
+}
+
+.accordion-item {
+    .available {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+        .manager {
+            grid-column-start: 4;
+            grid-column-end: 6;
+        }
+
+        button {
+            grid-column-start: 5;
+        }
+    }
+
+    .all {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.header {
+    margin: 1.5rem 0;
+}

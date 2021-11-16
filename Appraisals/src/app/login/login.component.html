@@ -1,0 +1,24 @@
+<div class="center">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off" class="container">
+        <h1 class="text-center">Login</h1>
+
+        <label for="username"><b>Username</b></label>
+        <input id="username" formControlName="username" type="text" class="form-control" maxlength="30"
+            spellcheck="false">
+        <div *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched" class="text-danger">
+            Invalid username
+        </div>
+
+        <label for="password"><b>Password</b></label>
+        <input id="password" formControlName="password" type="password" class="form-control" maxlength="30">
+        <div *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched" class="text-danger">
+            Invalid password
+        </div>
+        <div *ngIf="error" class="text-danger">{{ error }}</div>
+        <button type="submit" class="btn btn-primary btn-lg">Login</button>
+        <div class="alert alert-info" *ngIf="loggingIn">
+            <h5>Loggin In...</h5>
+        </div>
+        <!-- <button class="btn btn-info btn-lg" type="button" routerLink="/appraisals">View Appraisal Rankings</button> -->
+    </form>
+</div>

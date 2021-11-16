@@ -1,0 +1,51 @@
+.alert {
+  margin: 0 .5rem;
+}
+
+.alert-secondary:hover {
+  cursor: pointer;
+  background: whitesmoke;
+}
+
+.accordion-item .new {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 2fr 2fr 1fr;
+      grid-template-columns: 2fr 2fr 2fr 1fr;
+}
+
+.accordion-item .new input {
+  -ms-grid-column: 3;
+      grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+.accordion-item .new button {
+  -ms-grid-column: 4;
+      grid-column-start: 4;
+}
+
+.accordion-item .pending {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 2fr 1fr 1fr 1fr 1.2fr 1.2fr;
+      grid-template-columns: 2fr 2fr 1fr 1fr 1fr 1.2fr 1.2fr;
+}
+
+.accordion-item .pending input {
+  -ms-grid-column: 6;
+      grid-column-start: 6;
+  grid-column-end: 8;
+}
+
+.accordion-item .all {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 2fr 1.2fr 1.2fr 1.8fr 1.5fr 2fr;
+      grid-template-columns: 2fr 2fr 1.2fr 1.2fr 1.8fr 1.5fr 2fr;
+}
+
+.header {
+  margin: 1.5rem 0;
+}
+/*# sourceMappingURL=employee-appraisal.component.css.map */

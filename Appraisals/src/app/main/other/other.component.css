@@ -1,0 +1,73 @@
+section {
+  margin-bottom: 2rem;
+}
+
+#user-details,
+#change-password {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+#user-details button,
+#change-password button {
+  margin-top: 2rem;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.employee {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 2fr 1fr 2fr;
+      grid-template-columns: 2fr 2fr 1fr 2fr;
+  gap: 0.5rem;
+  max-height: 30rem;
+  overflow-y: auto;
+}
+
+.employee button {
+  margin-left: 1rem;
+  width: calc(100% - 1rem);
+}
+
+#newEmp {
+  width: 100%;
+}
+
+.alert {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+input {
+  margin: 0.5rem 0;
+}
+
+.template {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 6rem;
+      grid-template-columns: auto 6rem;
+}
+
+.template button {
+  margin: 0.5rem 0;
+}
+
+label {
+  margin-top: 2rem;
+}
+
+.container {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  margin-bottom: 1rem;
+}
+/*# sourceMappingURL=other.component.css.map */

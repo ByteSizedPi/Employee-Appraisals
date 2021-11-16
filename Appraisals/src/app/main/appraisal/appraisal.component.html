@@ -1,0 +1,51 @@
+<section class="container" *ngIf="parsed">
+    <div class="Row center-vertical space-between">
+        <h1>New Appraisal for Employee: </h1>
+        <div class="alert alert-success text-success">{{ getEmployee() }}</div>
+    </div>
+    <div class="Row center-vertical space-between" *ngIf="!isEmployee">
+        <div class="dropdown">
+            <div class="btn-group">
+                <button type="button" class="btn btn-outline-light dropdown-toggle space-between center-vertical"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select Template
+                </button>
+                <div class="dropdown-menu">
+                    <option (click)="setTemplate(template.template_id)" class="dropdown-item"
+                        *ngFor="let template of templates">
+                        <div>{{ template.template_id + " " + template.template_name }}</div>
+                    </option>
+                </div>
+            </div>
+        </div>
+        <p class="form-control">{{ template["template_id"] + " " + template["template_name"] }}</p>
+    </div>
+
+    <form class="container bg-white" *ngFor="let section of template.template; index as i">
+        <h2>{{ section.section }}. {{ section.title }}</h2>
+        <h4 class="text-muted">Objective: {{ section.objective }}</h4>
+        <ul class="list-group" *ngFor="let subsection of section.subsections; index as j">
+            <h5 class="text-dark">{{ j + 1 }}. {{ subsection.title }}</h5>
+            <li [id]="i + '' + j + '' + k" class="list-group-item" *ngFor="let question of subsection.questions; index as k">
+                <span class="Row space-between question">
+                    {{ j + 1 }}.{{ k + 1 }} {{ question }}
+                    <span class="Row space-between center-vertical">
+                        <input type="radio" [name]="j + '' + k" [value]="num" (click)="setVal(i, j, k, num)"
+                            *ngFor="let num of numbers">
+                        <p class="score">{{ scores[i][j][k] || 0 }}</p>
+                    </span>
+                </span>
+            </li>
+            <hr>
+        </ul>
+        <span class="Row space-between center-vertical">
+            <h5>sub-total:</h5>
+            <p [id]="'sub-total' + i" class="sub-total">{{ sum(i) }}</p>
+        </span>
+    </form>
+
+    <div class="Row space-between btn-container">
+        <button (click)="route()" class="btn btn-danger">Cancel</button>
+        <button class="btn btn-success" (click)="submit()">Post</button>
+    </div>
+</section>

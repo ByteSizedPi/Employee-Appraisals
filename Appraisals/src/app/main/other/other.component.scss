@@ -1,0 +1,60 @@
+section {
+    margin-bottom: 2rem;
+}
+
+#user-details,
+#change-password {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    button {
+        margin-top: 2rem;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}
+
+.employee {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr 2fr;
+    gap: 1rem;
+    max-height: 30rem;
+    overflow-y: auto;
+    button {
+        margin-left: 1rem;
+        width: calc(100% - 1rem);
+    }
+}
+
+#newEmp {
+    width: 100%;
+}
+
+.alert {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+input {
+    margin: 0.5rem 0;
+}
+
+.template {
+    display: grid;
+    grid-template-columns: auto 6rem;
+    button {
+        margin: 0.5rem 0;
+    }
+}
+
+label {
+    margin-top: 2rem;
+}
+
+.container {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.btn-primary {
+    margin-bottom: 1rem;
+}

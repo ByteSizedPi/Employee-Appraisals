@@ -1,0 +1,19 @@
+.nav-item {
+  cursor: pointer;
+}
+
+.Row {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+ul {
+  position: relative;
+  z-index: 0;
+}
+
+app-summary {
+  position: relative;
+  z-index: 2;
+}
+/*# sourceMappingURL=main.component.css.map */

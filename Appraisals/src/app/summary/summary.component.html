@@ -1,0 +1,25 @@
+<section class="center column" *ngIf="canShow">
+    <div class="container column bg-light">
+        <div class="space-between header">
+            <h3>
+                Summary for {{ appraisal["employee_username"] }}
+            </h3>
+            <div>
+                <button class="btn btn-outline-danger" (click)="close()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+        </div>
+        <div class="Row">
+            <span class="center-horizontal"> <b>Section</b> </span>
+            <span class="center-horizontal"> <b>Self Average</b> </span>
+            <span class="center-horizontal"> <b> Manager Average </b> </span>
+        </div>
+        <div class="Row" *ngFor="let score of scores; index as i">
+            <span class="center-horizontal"> <b>{{ section(i) }}</b> </span>
+            <span class="center-horizontal">{{ (score[1] / score[2]) | number: '1.0-2' }}</span>
+            <span class="center-horizontal">{{ (score[0] / score[2]) | number: '1.0-2' }}</span>
+        </div>
+    </div>
+</section>

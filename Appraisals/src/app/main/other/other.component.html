@@ -1,0 +1,83 @@
+<section *ngIf="!dataFetched">
+    <span class="loading">Loading...</span>
+</section>
+
+<section *ngIf="dataFetched">
+    <div class="user-details">
+        <label for="user-details">
+            <h4>User Details</h4>
+        </label>
+        <div id="user-details" class="container space-between">
+            <span><b>Name:</b></span><span>{{ user["name"] }}</span>
+            <span><b>Username:</b></span><span>{{ user["username"] }}</span>
+            <span><b>Rank:</b></span><span>{{ user["rank"] }}</span>
+            <span><b>Department:</b></span><span>{{ user["department"] }}</span>
+            <span *ngIf="!db.suffRank(2)"><b>Manager:</b></span><span *ngIf="!db.suffRank(2)">
+                {{ manager["name"]}}
+            </span>
+            <span><b>Date Added:</b></span><span>{{ date(user["date_created"]) }}</span>
+            <button class="btn btn-warning" (click)="togglePWComponent()">Change Password</button>
+        </div>
+    </div>
+    <form [formGroup]="changePWForm" (ngSubmit)="onSubmit()" autocomplete="off" class="container" *ngIf="canChangePW"
+        id="change-password">
+
+        <label for="current-password">Current Password:</label>
+        <input id="current-password" formControlName="current-password" type="password" class="form-control"
+            maxlength="20" spellcheck="false">
+        <div *ngIf="!confirmPassword() && changePWForm.get('current-password').touched"
+            class="alert alert-danger text-danger">Password Incorrect</div>
+
+        <label for="new-password">New Password:</label>
+        <input id="new-password" formControlName="new-password" type="text" class="form-control" maxlength="20"
+            spellcheck="false">
+        <div *ngIf="changePWForm.get('new-password').touched && !correctSpec()" class="alert alert-danger">Password must
+            be 6 characters or more</div>
+
+        <label for="confirm-password">Confirm Password:</label>
+        <input id="confirm-password" formControlName="confirm-password" type="text" class="form-control" maxlength="20"
+            spellcheck="false">
+        <div *ngIf="!matchPasswords() && changePWForm.get('confirm-password').touched" class="alert alert-danger">
+            Passwords
+            don't match</div>
+
+        <div *ngIf="!formIsValid" class="alert alert-success">All fields are mandatory</div>
+        <button class="btn btn-danger" type="button" (click)="togglePWComponent()">Cancel</button>
+        <button class="btn btn-primary" type="button" (click)="onSubmit()">Save Changes</button>
+    </form>
+    <div *ngIf="db.suffRank(2)">
+        <label for="view-employees">
+            <h4>Employees</h4>
+        </label>
+        <div class="container" id="employees">
+            <button class="btn btn-primary" *ngIf="db.suffRank(1)" routerLink="/newEmployee" id="newEmp">Add New Employee</button>
+            <span class="employee alert alert-secondary">
+                <div><b>Name</b></div>
+                <div><b>Username</b></div>
+                <div><b>Department</b></div>
+                <div><b>Date Added</b></div>
+            </span>
+            <div id="view-employees">
+                <span *ngFor="let employee of allEmployees" class="employee alert alert-info center-vertical">
+                    <div>{{ employee["name"] }}</div>
+                    <div>{{ employee["username"] }}</div>
+                    <div>{{ employee["department"] }}</div>
+                    <div>{{ date(employee["date_created"]) }}</div>
+                    <button class="btn btn-outline-danger" (click)="removeUser(employee)" *ngIf="db.suffRank(1)">Remove</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="db.suffRank(2)">
+        <label for="templates">
+            <h4>Appraisal Templates</h4>
+        </label>
+        <div class="container column" id="templates">
+            <button class="btn btn-primary" *ngIf="db.suffRank(1)" routerLink="/newTemplate">Add New Template</button>
+            <span *ngFor="let template of allTemplates" class="template alert alert-info center-vertical">
+                <span>{{ template["template_name"] }}</span>
+                <!-- <button class="btn btn-outline-primary">View</button> -->
+            </span>
+        </div>
+    </div>
+</section>

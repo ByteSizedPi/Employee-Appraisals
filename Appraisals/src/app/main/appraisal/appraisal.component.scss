@@ -1,0 +1,70 @@
+section {
+    background-color: rgb(140, 140, 160);
+}
+
+.alert {
+    margin: 0;
+}
+
+h2 {
+    margin: 1.5rem 1rem;
+}
+
+h4 {
+    margin: 1rem;
+}
+
+h5 {
+    margin: 1rem 0;
+}
+
+p {
+    margin: 0;
+}
+
+.btn-container {
+    margin-top: 1rem;
+    button {
+        width: 8rem;
+    }
+}
+
+.dropdown {
+    margin: 1rem 0;
+    .dropdown-menu {
+        box-shadow: 2px 0px 5px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    button {
+        margin-right: 0.5rem;
+    }
+}
+
+.spacer{
+    width: 3rem;
+}
+
+.list-group {
+    margin-left: 2rem;
+    .list-group-item {
+        padding: 0.75rem;
+    }
+}
+
+.indent {
+    margin-left: 1rem;
+}
+
+.question {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 2.5rem;
+}
+
+.container {
+    width: 100%;
+}
+
+.red-border {
+    border: 2px solid red;
+}

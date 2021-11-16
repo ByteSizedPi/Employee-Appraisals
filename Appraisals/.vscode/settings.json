@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/a9c5a1c6-01e3-4c06-973f-4d18292b1d8c/resourceGroups/AppraisalsResourceGroup/providers/Microsoft.Web/sites/Appraisals",
+    "appService.deploySubpath": "."
+}

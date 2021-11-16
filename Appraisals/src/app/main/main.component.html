@@ -1,0 +1,25 @@
+<section class="container">
+    <ul class="nav nav-tabs">
+        <li class="nav-item" *ngIf="user['rank'] === 'employee'">
+            <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                routerLink="/main/self">Self Appraisal</a>
+        </li>
+        <li class="nav-item" *ngIf="user['rank'] === 'manager'">
+            <a class="nav-link" routerLinkActive="active" routerLink="/main/employee">Employee Appraisal</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/main/other">Other</a>
+        </li>
+    </ul>
+    <div class="Row space-between">
+        <div class="alert alert-success text-success">
+            Logged in as: {{ user.name }} ( {{ user.username }} )
+        </div>
+        <div class="alert alert-success text-success">
+            Department: {{ user.department }}
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+    <button (click)="logout()" class="btn btn-danger">Log Out</button>
+    <app-summary></app-summary>
+</section>

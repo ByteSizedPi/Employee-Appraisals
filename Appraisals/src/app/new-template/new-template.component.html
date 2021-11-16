@@ -1,0 +1,78 @@
+<div class="loading" *ngIf="!isLoaded">
+    Loading...
+</div>
+
+<section [formGroup]="name" class="container" *ngIf="isLoaded" id="container">
+    <div class="Row">
+        <label for="new-template-name">
+            <h5 id="new-name">New Template Name:</h5>
+        </label>
+        <input type="text" id="new-template-name" class="form-control" formControlName="name" spellcheck="false"
+            autocomplete="off">
+    </div>
+    <div class="alert alert-danger" *ngIf="isEmpty()">
+        Please Enter A Name
+    </div>
+    <div class="alert alert-danger" *ngIf="!isUnique()">
+        Name Already Exists
+    </div>
+    <hr>
+
+    <section *ngIf="this.name.valid">
+        <div *ngFor="let section of newTemplate; index as i" class="section">
+            <h4>Section: {{ section.section }}</h4>
+            <label>Title:</label>
+            <input type="text" class="form-control" [id]="'title-' + i" spellcheck="false"
+            autocomplete="off">
+            <label>Objective:</label>
+            <input type="text" class="form-control" [id]="'objective-' + i" spellcheck="false"
+            autocomplete="off">
+            <div *ngFor="let subsection of section.subsections; index as j" class="sub-section">
+                <h5>Subsection {{ section.section }}{{ j + 1 }}</h5>
+                <label>Title:</label>
+                <input type="text" class="form-control" [id]="'title-' + i + '' + j" spellcheck="false"
+                autocomplete="off">
+                <h6>Questions</h6>
+                <div class="questions Row" *ngFor="let question of subsection.questions; index as k">
+                    <h6>{{j + 1}}.{{k + 1}}</h6>
+                    <textarea type="text" class="form-control" [id]="'question-' + i + '' + j + '' + k" spellcheck="false"
+                    autocomplete="off"></textarea>
+                </div>
+                <div class="space-between">
+                    <button class="btn btn-outline-danger" (click)="popQuestion(i, j)">
+                        <i class="fas fa-minus"></i>Remove Last Question
+                    </button>
+                    <button class="btn btn-outline-success" (click)="appendQuestion(i, j)">
+                        <i class="fas fa-plus"></i>New Question
+                    </button>
+                </div>
+            </div>
+            <div class="space-between">
+                <button class="btn btn-outline-danger" (click)="popSubsection(i)">
+                    <i class="fas fa-minus"></i>
+                    Remove Last Subsection
+                </button>
+                <button class="btn btn-outline-success" (click)="appendSubsection(i)">
+                    <i class="fas fa-plus"></i>
+                    New Subsection
+                </button>
+            </div>
+        </div>
+        <div class="space-between">
+            <button class="btn btn-outline-danger" (click)="popSection()">
+                <i class="fas fa-minus"></i>
+                Remove Last Section
+            </button>
+            <button class="btn btn-outline-success" (click)="appendSection()">
+                <i class="fas fa-plus"></i>
+                New Section
+            </button>
+        </div>
+    </section>
+    <hr>
+    <div class="space-between">
+        <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+        <button class="btn btn-success" (click)="submit()"
+            [disabled]="this.name.invalid || !this.templateIsValid()">Create Template</button>
+    </div>
+</section>

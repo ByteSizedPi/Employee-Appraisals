@@ -1,0 +1,184 @@
+{
+    "users": [
+        {
+            "employee-id": "#0",
+            "name": "Johan",
+            "username": "johan",
+            "password": "johan",
+            "business-unit-id": "#0",
+            "seniority-level": "0",
+            "date-created": null
+        },
+        {
+            "employee-id": "#1",
+            "name": "Divan",
+            "username": "divan",
+            "password": "divan",
+            "business-unit-id": "#0",
+            "seniority-level": "1",
+            "date-created": null
+        },
+        {
+            "employee-id": "#2",
+            "name": "Stefan",
+            "username": "stefan",
+            "password": "stefan",
+            "business-unit-id": "#0",
+            "seniority-level": "1",
+            "date-created": null
+        },
+        {
+            "employee-id": "#3",
+            "name": "Dewald",
+            "username": "dewald",
+            "password": "dewald",
+            "business-unit-id": "#0",
+            "seniority-level": "1",
+            "date-created": null
+        },
+        {
+            "employee-id": "#4",
+            "name": "Lisa",
+            "username": "lisa",
+            "password": "lisa",
+            "business-unit-id": "#0",
+            "seniority-level": "1",
+            "date-created": null
+        },
+        {
+            "employee-id": "#5",
+            "name": "Petrus",
+            "username": "petrus",
+            "password": "petrus",
+            "business-unit-id": "#0",
+            "seniority-level": "1",
+            "date-created": null
+        },
+        {
+            "employee-id": "#6",
+            "name": "Dian",
+            "username": "dian",
+            "password": "dian",
+            "business-unit-id": "#0",
+            "seniority-level": "1",
+            "date-created": null
+        }
+    ],
+    "appraisals": [
+        {
+            "id": "0",
+            "appraiser-id": "#0",
+            "appraisee-id": "#0",
+            "app-template-id": "0",
+            "scores": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "date": null,
+            "state": "completed",
+            "due-date": null
+        },
+        {
+            "id": "1",
+            "appraiser-id": "#0",
+            "appraisee-id": "#0",
+            "app-template-id": "0",
+            "scores": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "date": null,
+            "state": "new",
+            "due-date": null
+        },
+        {
+            "id": "2",
+            "appraiser-id": "#0",
+            "appraisee-id": "#0",
+            "app-template-id": "0",
+            "scores": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "date": null,
+            "state": "pending",
+            "due-date": null
+        },
+        {
+            "id": "4",
+            "appraiser-id": "#0",
+            "appraisee-id": "#0",
+            "app-template-id": "0",
+            "scores": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "date": null,
+            "state": "completed",
+            "due-date": null
+        },
+        {
+            "id": "3",
+            "appraiser-id": "#0",
+            "appraisee-id": "#0",
+            "app-template-id": "0",
+            "scores": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "date": null,
+            "state": "completed",
+            "due-date": null
+        },
+        {
+            "id": "5",
+            "appraiser-id": "#0",
+            "appraisee-id": "#0",
+            "app-template-id": "0",
+            "scores": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "date": null,
+            "state": "new",
+            "due-date": null
+        }
+    ],
+    "templates": [
+        {
+            "id": "#0",
+            "questions": [
+                "how hard working are you",
+                "how hard working are you",
+                "how hard working are you",
+                "how hard working are you",
+                "how hard working are you",
+                "how hard working are you",
+                "how hard working are you",
+                "how hard working are you",
+                "how hard working are you",
+                "how hard working are you",
+                "how hard working are you"
+            ],
+            "date": null
+        }
+    ]
+}

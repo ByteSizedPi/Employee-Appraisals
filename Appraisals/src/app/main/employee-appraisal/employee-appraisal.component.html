@@ -1,0 +1,194 @@
+<section *ngIf="!dataFetched">
+  <span class="loading">Loading...</span>
+</section>
+
+<section *ngIf="dataFetched">
+  <ul class="accordion" Accordion>
+
+    <li class="accordion-item collapsed">
+
+      <h4 class="space-between">
+        <div class="Row">
+          <i class="fas fa-plus icon center"></i>
+          New Appraisal
+        </div>
+        <i class="fas fa-chevron-up"></i>
+      </h4>
+
+      <div class="collapse-container">
+        <ul class="list-group header">
+          <li class="list-group-item list-group-item-secondary center-vertical new">
+            <div (click)="sort('Employees','username')" class="alert alert-secondary center-vertical space-between">
+              Username
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+            <div (click)="sort('Employees','name')" class="alert alert-secondary center-vertical space-between">
+              Name
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+            <input class="alert" type="search" placeholder="Search Employees" aria-label="Search"
+              (input)="searchEmployees('Employees', $event)" spellcheck="false">
+          </li>
+        </ul>
+
+        <ul class="list-group">
+          <li class="text-info" *ngIf="filteredEmployees.length === 0">No employees</li>
+          <li class="list-group-item list-group-item-action list-group-item-primary space-between center-vertical new"
+            *ngFor="let employee of filteredEmployees">
+            <div class="alert alert-primary">
+              {{ employee.username }}
+            </div>
+            <div class="alert alert-primary">
+              {{ employee.name }}
+            </div>
+            <button (click)="submit(employee)" class="btn btn-outline-primary">New</button>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="accordion-item collapsed">
+
+      <h4 class="space-between">
+        <div class="Row">
+          <i class="far fa-clock icon center"></i>
+          Pending Appraisals
+        </div>
+        <i class="fas fa-chevron-up"></i>
+      </h4>
+      <div class="collapse-container">
+        <ul class="list-group header">
+          <li class="list-group-item list-group-item-secondary center-vertical pending">
+            <div (click)="sort('PendingAppraisals','employee_username')"
+              class="alert alert-secondary center-vertical space-between">
+              Username
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+            <div (click)="sort('PendingAppraisals','name')" class="alert alert-secondary center-vertical space-between">
+              Name
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+            <div (click)="sort('PendingAppraisals','date_created')"
+              class="alert alert-secondary center-vertical space-between">
+              Created
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+            <div (click)="sort('PendingAppraisals','date_due')"
+              class="alert alert-secondary center-vertical space-between">
+              Due
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+            <div (click)="sort('PendingAppraisals','template_id')"
+              class="alert alert-secondary center-vertical space-between">
+              Template
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+            <input class="alert" type="search" placeholder="Search Employees" aria-label="Search"
+              (input)="searchAppraisals('PendingAppraisals', $event)" spellcheck="false">
+          </li>
+        </ul>
+
+        <ul class="list-group">
+          <li class="text-info" *ngIf="filteredPendingAppraisals.length === 0">No pending Appraisals</li>
+          <li
+            class="list-group-item list-group-item-action list-group-item-primary space-between center-vertical pending"
+            *ngFor="let appraisal of filteredPendingAppraisals">
+            <div class="alert alert-primary">
+              {{ appraisal["employee_username"] }}
+            </div>
+            <div class="alert alert-primary">
+              {{ appraisal["name"] }}
+            </div>
+            <div class="alert alert-primary">
+              {{ date(appraisal["date_created"]) }}
+            </div>
+            <div class="alert alert-primary">
+              {{ date(appraisal["date_due"]) }}
+            </div>
+            <div class="alert alert-primary">
+              {{ appraisal["template_id"] }}
+            </div>
+            <button (click)="showSummary(appraisal)" class="btn btn-outline-primary">Summary</button>
+            <button (click)="cancel(appraisal)" class="btn btn-outline-danger">Cancel</button>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="accordion-item collapsed">
+
+      <h4 class="space-between">
+        <div class="Row">
+          <i class="far fa-list icon center"></i>
+          All Created Appraisals
+        </div>
+        <i class="fas fa-chevron-up"></i>
+      </h4>
+      <div class="collapse-container">
+        <nav class="navbar navbar-light">
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search Employees" aria-label="Search"
+              (input)="searchAppraisals('Appraisals', $event)" spellcheck="false">
+          </form>
+        </nav>
+        <ul class="list-group header">
+          <li class="list-group-item list-group-item-secondary center-vertical all">
+            <div (click)="sort('Appraisals','employee_username')"
+              class="alert alert-secondary center-vertical space-between">
+              Username
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+            <div (click)="sort('Appraisals','name')" class="alert alert-secondary center-vertical space-between">
+              Name
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+            <div (click)="sort('Appraisals','date_created')"
+              class="alert alert-secondary center-vertical space-between">
+              Created
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+            <div (click)="sort('Appraisals','date_due')" class="alert alert-secondary center-vertical space-between">
+              Due
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+            <div (click)="sort('Appraisals','template_id')" class="alert alert-secondary center-vertical space-between">
+              Template ID
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+            <div (click)="sort('Appraisals','state')" class="alert alert-secondary center-vertical space-between">
+              Status
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+          </li>
+        </ul>
+
+        <ul class="list-group">
+          <li class="text-info" *ngIf="filteredAppraisals.length === 0">No Created Appraisals</li>
+          <li [ngClass]="getClass('list-group-item space-between center-vertical all list-group-item-',appraisal.state)"
+            *ngFor="let appraisal of filteredAppraisals">
+            <div class="alert">
+              {{ appraisal["employee_username"] }}
+            </div>
+            <div class="alert">
+              {{ appraisal["name"] }}
+            </div>
+            <div class="alert">
+              {{ date(appraisal["date_created"]) }}
+            </div>
+            <div class="alert">
+              {{ date(appraisal["date_due"]) }}
+            </div>
+            <div class="alert">
+              {{ appraisal["template_id"] }}
+            </div>
+            <div class="alert">
+              {{ appraisal["state"] }}
+            </div>
+            <button (click)="showSummary(appraisal)" class="btn btn-outline-primary">Summary</button>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+  </ul>
+</section>

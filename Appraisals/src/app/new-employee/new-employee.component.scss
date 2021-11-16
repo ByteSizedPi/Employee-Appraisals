@@ -1,0 +1,55 @@
+label {
+    margin-right: 1rem;
+}
+
+#user {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+input {
+    margin: 0.5rem 0;
+}
+
+.dropdown-toggle {
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    margin: 0.5rem 0;
+}
+
+.btn-group,
+.Row,
+.dropdown {
+    width: 100%;
+    .btn-light {
+        border: 1px solid black;
+    }
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 1rem;
+    .btn-primary,
+    .dept-control button{
+        height: calc(1.5em + 0.75rem + 2px);
+        margin: 0.5rem 0;
+    }
+
+    .dept-control button{
+        width: calc(1.5em + 0.75rem + 2px);
+    }
+}
+
+.alert {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.text-danger {
+    grid-column-start: 0;
+    grid-column-end: 2;
+}
+
+.controls {
+    margin-top: 1rem;
+}

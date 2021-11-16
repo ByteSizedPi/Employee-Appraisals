@@ -1,0 +1,40 @@
+.alert {
+    margin: 0 .5rem;
+    
+}
+.alert-secondary:hover {
+    cursor: pointer;
+    background: whitesmoke;
+}
+
+.accordion-item {
+    .new {
+        display: grid;
+        grid-template-columns: 3fr 2fr 2fr 1fr;
+        input {
+            grid-column-start: 3;
+            grid-column-end: 5;
+        }
+        button {
+            grid-column-start: 4;
+        }
+    }
+
+    .pending {
+        display: grid;
+        grid-template-columns: 3fr 2fr 1fr 1fr 1fr 1.2fr 1.2fr;
+        input {
+            grid-column-start: 6;
+            grid-column-end: 8;
+        }
+    }
+
+    .all {
+        display: grid;
+        grid-template-columns: 4fr 2fr 1.2fr 1.2fr 1.8fr 1.5fr 2fr;
+    }
+}
+
+.header {
+    margin: 1.5rem 0;
+}

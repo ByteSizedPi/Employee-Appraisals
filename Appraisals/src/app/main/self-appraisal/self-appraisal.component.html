@@ -1,0 +1,113 @@
+<section *ngIf="!dataFetched">
+  <span class="loading">Loading...</span>
+</section>
+
+<section *ngIf="dataFetched">
+  <ul class="accordion" Accordion>
+
+    <li class="accordion-item collapsed">
+
+      <h4 class="space-between">
+        <div class="Row">
+          <i class="fas fa-exclamation icon center"></i>
+          Available Appraisals
+        </div>
+        <i class="fas fa-chevron-up"></i>
+      </h4>
+      <div class="collapse-container">
+        <ul class="list-group header">
+          <li class="list-group-item list-group-item-secondary center-vertical available">
+            <div (click)="sort('Available','appraisal_id')"
+              class="alert alert-secondary center-vertical space-between">
+              Appraisal ID
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+            <div (click)="sort('Available','date_created')" class="alert alert-secondary center-vertical space-between">
+              Date Created
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+            <div (click)="sort('Available','date_due')" class="alert alert-secondary center-vertical space-between">
+              Due Date
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+            <div class="alert alert-light center manager">
+              Manager: {{ manager["name"] + " [ " + manager["username"] + " ]" }}
+            </div>
+          </li>
+        </ul>
+
+        <ul class="list-group">
+          <li class="text-info" *ngIf="filteredAvailable.length === 0">No Available Appraisals</li>
+          <li
+            class="list-group-item list-group-item-action list-group-item-primary space-between center-vertical available"
+            *ngFor="let appraisal of filteredAvailable">
+            <div class="alert alert-primary">
+              {{ appraisal["appraisal_id"] }}
+            </div>
+            <div class="alert alert-primary">
+              {{ date(appraisal["date_created"]) }}
+            </div>
+            <div class="alert alert-primary">
+              {{ date(appraisal["date_due"]) }}
+            </div>
+            <button (click)="submit(appraisal)" class="btn btn-outline-primary">Start</button>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="accordion-item collapsed">
+
+      <h4 class="space-between">
+        <div class="Row">
+          <i class="far fa-list icon center"></i>
+          All Appraisals
+        </div>
+        <i class="fas fa-chevron-up"></i>
+      </h4>
+      <div class="collapse-container">
+        <ul class="list-group header">
+          <li class="list-group-item list-group-item-secondary center-vertical all">
+            <div (click)="sort('Appraisals','appraisal_id')"
+              class="alert alert-secondary center-vertical space-between">
+              Appraisal ID
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+            <div (click)="sort('Appraisals','date_created')" class="alert alert-secondary center-vertical space-between">
+              Date Created
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+            <div (click)="sort('Appraisals','date_due')" class="alert alert-secondary center-vertical space-between">
+              Due Date
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+            <div (click)="sort('Appraisals','state')" class="alert alert-secondary center-vertical space-between">
+              Status
+              <i class="fas fa-sort-alpha-down"></i>
+            </div>
+          </li>
+        </ul>
+
+        <ul class="list-group">
+          <li class="text-info" *ngIf="filteredAppraisals.length === 0">No Created Appraisals</li>
+          <li [ngClass]="getClass('list-group-item space-between center-vertical all list-group-item-',appraisal.state)"
+            *ngFor="let appraisal of filteredAppraisals">
+            <div class="alert">
+              {{ appraisal["appraisal_id"] }}
+            </div>
+            <div class="alert">
+              {{ date(appraisal["date_created"]) }}
+            </div>
+            <div class="alert">
+              {{ date(appraisal["date_due"]) }}
+            </div>
+            <div class="alert">
+              {{ appraisal["state"] }}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+  </ul>
+</section>

@@ -1,0 +1,11 @@
+<section class="space-between">
+    <button (click)="logout()" class="btn btn-danger">Log Out</button>
+    <div class="Row">
+        <div class="alert alert-success text-success">
+            Logged in as: {{ user.name }} ( {{ user.username }} )
+        </div>
+        <div class="alert alert-success text-success">
+            Department: {{ user.department }}
+        </div>
+    </div>
+</section>

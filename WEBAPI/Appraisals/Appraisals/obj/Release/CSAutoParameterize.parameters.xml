@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="dbEmployeeAppraisals-Web.config Connection String" description="dbEmployeeAppraisals Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:rivetprop.database.windows.net,1433;Initial Catalog=dbEmployeeAppraisals;Persist Security Info=False;User ID=Johan;Password=W@ld@010;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\31656072\\Desktop\\Employee\ Appraisals\\WEBAPI\\Appraisals\\Appraisals\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='dbEmployeeAppraisals']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-Appraisals-20210411042401.mdf;Initial Catalog=aspnet-Appraisals-20210411042401;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\31656072\\Desktop\\Employee\ Appraisals\\WEBAPI\\Appraisals\\Appraisals\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

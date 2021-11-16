@@ -1,0 +1,68 @@
+<section class="container column">
+    <h3>Add New User</h3>
+    <span class="alert alert-primary">NOTE: Email will be used as username and can not be changed at a later
+        time.</span>
+    <form class="container" id="user" [formGroup]="newEmployee" autocomplete="off">
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name" type="text" class="form-control" spellcheck="false">
+        <label for="email">Email:</label>
+        <div>
+            <input id="email" formControlName="email" type="text" class="form-control" spellcheck="false">
+            <div *ngIf="newEmployee.get('email').invalid && newEmployee.get('email').touched"
+                class="alert alert-danger text-danger">Invalid Email</div>
+        </div>
+
+        <label for="department">User Type:</label>
+        <div class="dropdown" id="department">
+            <div class="btn-group">
+                <button type="button" class="btn btn-light dropdown-toggle space-between center-vertical"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span>{{curRank}}</span>
+                </button>
+                <div class="dropdown-menu">
+                    <option class="dropdown-item" (click)="setRank(i)" *ngFor="let rank of ranks; index as i">
+                        {{ rank }}
+                    </option>
+                </div>
+            </div>
+        </div>
+
+        <label for="department">Department:</label>
+        <div *ngIf="curRank === 'root'" class="alert-dark form-control">
+            root
+        </div>
+        <div *ngIf="curRank === 'admin'" class="alert-dark form-control">
+            admin
+        </div>
+        <div *ngIf="curRank === 'manager'">
+            <input type="text" class="form-control" id="new-dept" placeholder="New department name..."
+                (input)="validateDept()" (focusout)="validateDept()">
+            <div *ngIf="!newDeptIsValid" class="alert alert-danger">
+                {{ errorString }}
+            </div>
+        </div>
+        <div *ngIf="curRank === 'employee'">
+            <div>
+                <div class="dropdown" id="department">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-light dropdown-toggle space-between center-vertical"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span>{{curDepartment}}</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <option class="dropdown-item" (click)="setDepartment(i)"
+                                *ngFor="let dep of departments; index as i">
+                                {{ dep }}
+                            </option>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div *ngIf="userExists" class="alert alert-danger text-danger">Email taken</div>
+    <div class="space-between controls">
+        <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+        <button class="btn btn-primary" (click)="submitUser()">Add User</button>
+    </div>
+</section>
